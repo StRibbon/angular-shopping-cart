@@ -2,11 +2,6 @@
   <thead>
     <tr>
       <th>
-        Sort By
-          <select ng-model="selected" ng-init="selected='Rating'">
-            <option ng-selected="setSort(selected)">Rating</option>
-            <option ng-selected="setSort(selected)">Price</option>
-          </select>
       </th>
       <th style="width:100px;">Tea</th>
       <th style="width:300px;">Info</th>
@@ -35,13 +30,10 @@
       Rating: {{tea.rating}}
       </td>
       <td>
-        <select ng-model="selected" ng-init="selected='?'">
-          <option ng-selected="setQuantity(selected)">1</option>
-          <option ng-selected="setQuantity(selected)">2</option>
-          <option ng-selected="setQuantity(selected)">3</option>
-          <option ng-selected="setQuantity(selected)">4</option>
-        </select>
-        <span class="btn btn-success btn-xs" ng-click="addItem(quantity, tea)"><span class="glyphicon glyphicon-plus"><span></span>
+        Change Quantity: <input type="number" style="width:50px;"class="form-control" ng-model="tea.quantity">
+        <span class="btn btn-danger btn-xs" ng-click="removeItem(tea)">X</span>
+
+        
       </td>
     </tr>
   </tbody>

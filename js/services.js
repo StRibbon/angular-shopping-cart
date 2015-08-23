@@ -10,16 +10,15 @@ app.factory('Cart', function() {
 
   Cart.addItem = function(num, obj) {
     Cart.count += Number(num);
-    obj.quantity = 1;
+    obj.quantity = Number(num);
     Cart.itemList.push(obj);
-    console.log(Cart.itemList.length);
   };
 
   Cart.findItem = function(index) {
     return Cart.itemList[index];
   };
 
-  Cart.removeItem = function(index) {
+  Cart.deleteItem = function(index) {
     Cart.itemList.splice(index,1);
   };
 

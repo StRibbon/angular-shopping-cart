@@ -19,11 +19,16 @@ app.controller('BrowseController', function($scope, $http, Cart){
   $scope.addItem = function(quantity, item){
   	Cart.addItem(quantity, item);
   	$scope.Badge = Cart.badge();
-  }
+  };
+
 });
 
 app.controller('CartController', function($scope, Cart){
   $scope.message = "$$$";
   $scope.items = Cart.getItems();
   $scope.Badge = Cart.badge();
+  $scope.removeItem = function(index){
+  	console.log(index);
+  	Cart.deleteItem(index);
+  }
 });
