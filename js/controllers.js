@@ -17,7 +17,7 @@ app.controller('BrowseController', function($scope, $http, Cart){
 	$scope.sort = "-" + type.toLowerCase();
   };
   $scope.addItem = function(quantity, item){
-  	Cart.addItem(item);
+  	Cart.addItem(quantity, item);
   	$scope.Badge = Cart.badge();
   }
 });

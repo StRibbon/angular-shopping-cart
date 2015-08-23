@@ -17,7 +17,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="tea in items | orderBy:sort">
+    <tr ng-repeat="tea in items track by $index">
       <td><img ng-src="{{tea.imageUrl}}" alt=""></td>
       <td>
         {{tea.name}}<br>

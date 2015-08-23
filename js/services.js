@@ -1,5 +1,6 @@
 app.factory('Cart', function() {
   var Cart = {};
+  Cart.count = 0;
 
   Cart.itemList = [];
 
@@ -7,9 +8,11 @@ app.factory('Cart', function() {
     return Cart.itemList;
   }
 
-  Cart.addItem = function(obj) {
-    obj.id = Cart.itemList.length;
+  Cart.addItem = function(num, obj) {
+    Cart.count += Number(num);
+    obj.quantity = 1;
     Cart.itemList.push(obj);
+    console.log(Cart.itemList.length);
   };
 
   Cart.findItem = function(index) {
@@ -21,7 +24,7 @@ app.factory('Cart', function() {
   };
 
   Cart.badge = function(){
-    return Cart.itemList.length;
+    return Cart.count;
   }
 
   return Cart;
