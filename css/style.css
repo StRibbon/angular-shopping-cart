@@ -1,0 +1,11 @@
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.jumbotron {
+	margin-top: 100px;
+	background-image: url("http://blog.talyse.com/wp-content/uploads/2014/11/1920x1080.jpg");
+	background-position: center; 
+}
+
+img {
+	width:200px;
+}
