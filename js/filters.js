@@ -10,9 +10,7 @@ app.filter('instock', function(){
 });
 
 app.filter('decimal', function () {
-  return function (input) {
-    len = input.length - 2;
-    nu = input.insert(len, ".");
-    return nu;
+  return function (input){
+    return input/100;
   };
 });
