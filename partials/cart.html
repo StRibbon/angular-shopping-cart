@@ -1,14 +1,14 @@
 <table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th>
+      <th style="width:150px;">
       </th>
-      <th style="width:100px;">Tea</th>
+      <th style="width:150px;">Tea</th>
       <th style="width:300px;">Info</th>
-      <th>Quantity</th>
+      <th></th>
       <th style="text-align:right;"><span>Cart</span>
         <span class="badge">{{Badge}}</span>
-        <span>Total {{Total | decimal | currency}}</span>
+        <span>  Total {{Total | decimal | currency}}</span>
       </th>
     </tr>
   </thead>
@@ -16,26 +16,26 @@
     <tr ng-repeat="tea in items track by $index">
       <td><img ng-src="{{tea.imageUrl}}" alt=""></td>
       <td>
-        {{tea.name}}<br>
+        <strong>{{tea.name}}</strong><br>
         Caffeine: {{tea.caffeineScale}}
       </td>
-      <td>Ingredients: 
+      <td><span class="itemLabel">Ingredients:</span> 
         {{tea.ingredients}}<br><br>
-        Categories: 
+        <span class="itemLabel">Categories:</span> 
         <span ng-repeat="category in tea.categories">
         {{category}}</span> 
       </td>
       <td>
-      {{tea.subTotal | decimal | currency}}<br>
+      <strong>{{tea.subTotal | decimal | currency}}</strong><br>
       InStock: {{tea.inStock | instock}}<br>
       Rating: {{tea.rating}}
       </td>
       <td>
-       
+       <div style="float:right;">
           <input type="number" style="width:50px;"class="form-control" ng-model="tea.quantity" name="newQ">
           <span class="btn btn-success btn-xs" ng-click="updateItem(tea)">Ok</span>
           <span class="btn btn-danger btn-xs" ng-click="removeItem(tea)">X</span>
-        
+       </div>
         
       </td>
     </tr>

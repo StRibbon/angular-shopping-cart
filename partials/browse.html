@@ -1,41 +1,41 @@
 <table class="table table-striped table-hover ">
   <thead>
     <tr>
-      <th>
+      <th style="width:150px;">
         Sort By
           <select ng-model="selected" ng-init="selected='Rating'">
             <option ng-selected="setSort(selected)">Rating</option>
             <option ng-selected="setSort(selected)">Price</option>
           </select>
       </th>
-      <th style="width:100px;">Tea</th>
+      <th style="width:150px;">Tea</th>
       <th style="width:300px;">Info</th>
-      <th>Quantity</th>
+      <th></th>
       <th><span>Cart</span>
         <span class="badge">{{Badge}}</span>
       </th>
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="tea in teaData | orderBy:sort">
+    <tr ng-repeat="tea in teaData | filter:searchText | orderBy:sort">
       <td><img ng-src="{{tea.imageUrl}}" alt=""></td>
       <td>
-        {{tea.name}}<br>
-        Caffeine: {{tea.caffeineScale}}
+        <strong>{{tea.name}}</strong><br>
+        <span class="itemLabel">Caffeine:</span> {{tea.caffeineScale}}
       </td>
-      <td>Ingredients: 
+      <td><span class="itemLabel">Ingredients:</span> 
         {{tea.ingredients}}<br><br>
-        Categories: 
+        <span class="itemLabel">Categories:</span>
         <span ng-repeat="category in tea.categories">
         {{category}}</span> 
       </td>
       <td>
-      {{tea.price | decimal | currency}}<br>
+      <strong>{{tea.price | decimal | currency}}</strong><br>
       InStock: {{tea.inStock | instock}}<br>
       Rating: {{tea.rating}}
       </td>
       <td>
-        <select ng-model="selected" ng-init="selected='1'">
+        <select class="b" ng-model="selected" ng-init="selected='1'">
           <option ng-selected="setQuantity(selected)">1</option>
           <option ng-selected="setQuantity(selected)">2</option>
           <option ng-selected="setQuantity(selected)">3</option>
@@ -45,6 +45,4 @@
       </td>
     </tr>
   </tbody>
-</table> 
-
-{{teaData}}
+</table>
