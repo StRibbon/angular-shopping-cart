@@ -32,6 +32,7 @@ app.controller('CartController', function($scope, Cart){
   	console.log(index);
   	Cart.deleteItem(index);
   	$scope.Badge = Cart.addTotalItems($scope.items);
+  	$scope.Total = Cart.addTotal($scope.items);	
   };
   $scope.updateItem = function(tea){
   	tea.subTotal = tea.quantity * tea.price;
